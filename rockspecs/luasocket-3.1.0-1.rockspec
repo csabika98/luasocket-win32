@@ -1,8 +1,8 @@
 package = "LuaSocket"
 version = "3.1.0-1"
 source = {
-  url = "git+https://github.com/lunarmodules/luasocket.git",
-  tag = "v3.1.0"
+  url = "git+https://github.com/csabika98/luasocket-win32.git",
+  tag = "master"
 }
 description = {
   summary = "Network support for the Lua language",
@@ -34,7 +34,7 @@ local function make_plat(plat)
     },
     mingw32 = {
       "LUASOCKET_DEBUG",
-      -- "LUASOCKET_INET_PTON",
+      "LUASOCKET_INET_PTON",
       "WINVER=0x0501"
     }
   }
