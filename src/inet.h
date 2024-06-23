@@ -45,8 +45,10 @@ int inet_aton(const char *cp, struct in_addr *inp);
 #endif
 
 #ifdef LUASOCKET_INET_PTON
-const char *inet_ntop(int af, const void *src, char *dst, socklen_t cnt);
-int inet_pton(int af, const char *src, void *dst);
+  #if !defined(__MINGW32__)  // Avoid redefinition conflict with MinGW
+    const char *inet_ntop(int af, const void *src, char *dst, socklen_t cnt);
+    int inet_pton(int af, const char *src, void *dst);
+  #endif
 #endif
 
 #ifndef _WIN32
@@ -54,3 +56,4 @@ int inet_pton(int af, const char *src, void *dst);
 #endif
 
 #endif /* INET_H */
+
